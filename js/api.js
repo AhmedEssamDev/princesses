@@ -146,6 +146,21 @@ async function mutate(action, body = {}, method = 'POST', id = null) {
   });
 }
 
+/* ─── Data Normalizers ─── */
+
+// Fix: Google Apps Script camelCase converts "ID" column to "iD" instead of "id"
+// This normalizer ensures id is always lowercase across all dress objects
+function normalizeDress(d) {
+  if (!d) return d;
+  if (!d.id && d.iD) d.id = d.iD;
+  if (!d.id && d.ID) d.id = d.ID;
+  return d;
+}
+
+function normalizeDressList(list) {
+  return Array.isArray(list) ? list.map(normalizeDress) : list;
+}
+
 /* ─── Local Mock Helpers ─── */
 
 function getMockDresses() {
@@ -273,6 +288,7 @@ export async function getDresses() {
   try {
     const res = await get('dresses');
     if (res && res.success) {
+      res.data = normalizeDressList(res.data);
       setCachedApi('dresses', res);
       return res;
     }
@@ -315,6 +331,7 @@ export async function getAdminDresses() {
   try {
     const res = await get('admin/dresses');
     if (res && res.success) {
+      res.data = normalizeDressList(res.data);
       setCachedApi('admin_dresses', res);
       return res;
     }
