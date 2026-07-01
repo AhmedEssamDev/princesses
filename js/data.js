@@ -6,7 +6,7 @@ window.PRINCESSES = {
   contact: {
     whatsapp: '966500000000',
     phone: '+966 50 000 0000',
-    email: 'info@princesses.com',
+    email: '',
     address: 'الرياض، المملكة العربية السعودية',
   },
 

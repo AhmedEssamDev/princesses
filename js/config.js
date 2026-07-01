@@ -15,7 +15,7 @@ export const CONFIG = {
   contact: {
     whatsapp: '+201283293727',
     phone: '+201283293727',
-    email: 'info@princesses.com',
+    email: '',
     address: 'الزقازيق، مصر',
     mapsUrl: 'https://maps.google.com/?q=Zagazig',
   },
