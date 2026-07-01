@@ -8,6 +8,23 @@ import { getDresses, getCategories, getAbout } from './api.js';
 
 let DATA = window.PRINCESSES || { dresses: [], categories: [] };
 
+/* ─── Page Loader ─── */
+
+function hideLoader() {
+  var loader = document.getElementById('page-loader');
+  if (loader) {
+    // Small delay so the page doesn't flash
+    setTimeout(function () { loader.classList.add('hidden'); }, 300);
+  }
+}
+
+function showSkeletons(container, count) {
+  if (!container) return;
+  container.innerHTML = Array.from({ length: count || 4 }, function () {
+    return '<div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div><div class="skeleton-line skeleton-line--price"></div></div></div>';
+  }).join('');
+}
+
 /* ─── Helpers ─── */
 
 function $(sel, parent) {
@@ -266,13 +283,25 @@ async function init() {
   initNav();
   initWhatsApp();
 
+  var page = document.body.dataset.page;
+
+  // Show skeleton grids while fetching
+  if (page === 'home') {
+    showSkeletons($('#featured-dresses-grid'), 4);
+    showSkeletons($('#latest-dresses-grid'), 4);
+  }
+  if (page === 'dresses') {
+    showSkeletons($('#dresses-grid'), 8);
+  }
+
   const aboutData = await syncDataFromApi();
 
-  var page = document.body.dataset.page;
   if (page === 'home') initHome();
   if (page === 'dresses') initDressesList();
   if (page === 'dress') initDressDetail();
   if (page === 'about' && aboutData) initAbout(aboutData);
+
+  hideLoader();
 }
 
 if (document.readyState === 'loading') {

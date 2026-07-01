@@ -433,7 +433,9 @@ async function handleDressFormSubmit(e) {
         formSuccess.style.display = 'block';
 
         const uploadResult = await uploadImageFile(item, uploadFolder);
-        if (uploadResult.success && (uploadResult.data?.thumbnailUrl || uploadResult.data?.url)) {
+        if (uploadResult.success && uploadResult.data?.id) {
+          finalImageUrls.push(`https://lh3.googleusercontent.com/d/${uploadResult.data.id}`);
+        } else if (uploadResult.success && (uploadResult.data?.thumbnailUrl || uploadResult.data?.url)) {
           finalImageUrls.push(uploadResult.data.thumbnailUrl || uploadResult.data.url);
         } else {
           throw new Error(uploadResult.error || `فشل رفع الصورة: ${item.name}`);
