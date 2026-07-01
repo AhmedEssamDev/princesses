@@ -70,7 +70,7 @@ async function request(url, options = {}) {
       redirect: 'follow',
       ...options,
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain;charset=utf-8',
         ...(options.headers || {}),
       },
     });
