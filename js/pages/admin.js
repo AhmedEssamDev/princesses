@@ -273,7 +273,7 @@ function renderDressesList() {
 
     return `
       <tr>
-        <td><img src="${mainImg}" alt="${dress.name}" class="table-thumbnail"></td>
+        <td><img src="${mainImg}" alt="${dress.name}" class="table-thumbnail elegant-img" onload="this.classList.add('loaded')"></td>
         <td dir="ltr" style="font-size: 11px; font-family: monospace;">#${dress.id?.substring(0, 8)}...</td>
         <td><strong>${dress.name}</strong></td>
         <td>${dress.category}</td>

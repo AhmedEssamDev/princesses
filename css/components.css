@@ -427,6 +427,18 @@
   animation: pulse-soft 2s ease-in-out infinite;
 }
 
+/* ─── Elegant Image Loading ─── */
+img.elegant-img {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+img.elegant-img.loaded {
+  opacity: 1;
+  transform: scale(1);
+}
 .loading-screen__brand {
   font-family: var(--font-display);
   font-size: var(--text-2xl);

@@ -63,7 +63,7 @@ function dressCard(dress) {
     '<article class="card">' +
       '<a href="' + dressUrl(dress.id) + '" class="card__link">' +
         '<div class="card__image-wrapper">' +
-          '<img src="' + img + '" alt="' + dress.name + '" class="card__image" loading="lazy">' +
+          '<img src="' + img + '" alt="' + dress.name + '" class="card__image elegant-img" loading="lazy" onload="this.classList.add(\'loaded\')">' +
         '</div>' +
         '<div class="card__body">' +
           (dress.category ? '<span class="card__category">' + dress.category + '</span>' : '') +
@@ -208,7 +208,7 @@ function initDressDetail() {
   root.innerHTML =
     '<div class="dress-detail">' +
       '<div class="dress-gallery">' +
-        '<div class="dress-gallery__main"><img id="dress-main-img" src="' + mainImg + '" alt="' + dress.name + '"></div>' +
+        '<div class="dress-gallery__main"><img id="dress-main-img" src="' + mainImg + '" alt="' + dress.name + '" class="elegant-img" onload="this.classList.add(\'loaded\')"></div>' +
         (images.length > 1 ? '<div class="dress-gallery__thumbs">' + thumbs + '</div>' : '') +
       '</div>' +
       '<div class="dress-info">' +

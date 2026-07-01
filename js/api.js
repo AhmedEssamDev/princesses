@@ -9,7 +9,37 @@ const TOKEN_KEY = 'princesses_admin_token';
 const MOCK_DRESSES_KEY = 'princesses_mock_dresses';
 const MOCK_ABOUT_KEY = 'princesses_mock_about';
 
-/* ─── Token Management ─── */
+/* ─── Token & Cache Management ─── */
+
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+function getCachedApi(key) {
+  const cached = sessionStorage.getItem('api_cache_' + key);
+  if (!cached) return null;
+  try {
+    const parsed = JSON.parse(cached);
+    if (Date.now() - parsed.timestamp > CACHE_TTL) {
+      sessionStorage.removeItem('api_cache_' + key);
+      return null;
+    }
+    return parsed.data;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setCachedApi(key, data) {
+  sessionStorage.setItem('api_cache_' + key, JSON.stringify({
+    timestamp: Date.now(),
+    data: data
+  }));
+}
+
+export function clearApiCache() {
+  Object.keys(sessionStorage).forEach(k => {
+    if (k.startsWith('api_cache_')) sessionStorage.removeItem(k);
+  });
+}
 
 export function getAuthToken() {
   return sessionStorage.getItem(TOKEN_KEY);
@@ -102,6 +132,7 @@ async function mutate(action, body = {}, method = 'POST', id = null) {
   const payload = {
     ...body,
     _method: method,
+    ...(id ? { id } : {}),
     ...(token ? { token } : {}),
   };
 
@@ -231,9 +262,16 @@ export async function getDresses() {
   if (!isApiConfigured()) {
     return { success: true, data: getMockDresses() };
   }
+  
+  const cached = getCachedApi('dresses');
+  if (cached) return cached;
+
   try {
     const res = await get('dresses');
-    if (res && res.success) return res;
+    if (res && res.success) {
+      setCachedApi('dresses', res);
+      return res;
+    }
     return { success: true, data: getMockDresses(), fallback: true };
   } catch (err) {
     return { success: true, data: getMockDresses(), fallback: true };
@@ -266,9 +304,16 @@ export async function getAdminDresses() {
   if (!isApiConfigured()) {
     return { success: true, data: getMockDresses() };
   }
+
+  const cached = getCachedApi('admin_dresses');
+  if (cached) return cached;
+
   try {
     const res = await get('admin/dresses');
-    if (res && res.success) return res;
+    if (res && res.success) {
+      setCachedApi('admin_dresses', res);
+      return res;
+    }
     return { success: true, data: getMockDresses(), fallback: true };
   } catch (err) {
     return { success: true, data: getMockDresses(), fallback: true };
@@ -286,7 +331,10 @@ export async function createDress(data) {
   }
   try {
     const res = await mutate('dress', data, 'POST');
-    if (res && res.success) return res;
+    if (res && res.success) {
+      clearApiCache();
+      return res;
+    }
     const list = getMockDresses();
     data.id = 'dress_' + Date.now();
     data.createdAt = new Date().toISOString();
@@ -316,7 +364,10 @@ export async function updateDress(id, data) {
   }
   try {
     const res = await mutate('dress', data, 'PUT', id);
-    if (res && res.success) return res;
+    if (res && res.success) {
+      clearApiCache();
+      return res;
+    }
     const list = getMockDresses();
     const idx = list.findIndex(d => String(d.id) === String(id));
     if (idx !== -1) {
@@ -346,7 +397,10 @@ export async function deleteDress(id) {
   }
   try {
     const res = await mutate('dress', {}, 'DELETE', id);
-    if (res && res.success) return res;
+    if (res && res.success) {
+      clearApiCache();
+      return res;
+    }
     let list = getMockDresses();
     list = list.filter(d => String(d.id) !== String(id));
     saveMockDresses(list);
@@ -399,9 +453,16 @@ export async function getAbout() {
   if (!isApiConfigured()) {
     return { success: true, data: getMockAbout() };
   }
+
+  const cached = getCachedApi('about');
+  if (cached) return cached;
+
   try {
     const res = await get('about');
-    if (res && res.success) return res;
+    if (res && res.success) {
+      setCachedApi('about', res);
+      return res;
+    }
     return { success: true, data: getMockAbout(), fallback: true };
   } catch (err) {
     return { success: true, data: getMockAbout(), fallback: true };
