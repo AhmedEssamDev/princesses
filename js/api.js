@@ -283,7 +283,10 @@ export async function getDresses() {
   }
   
   const cached = getCachedApi('dresses');
-  if (cached) return cached;
+  if (cached && cached.success) {
+    cached.data = normalizeDressList(cached.data);
+    return cached;
+  }
 
   try {
     const res = await get('dresses');
@@ -326,7 +329,10 @@ export async function getAdminDresses() {
   }
 
   const cached = getCachedApi('admin_dresses');
-  if (cached) return cached;
+  if (cached && cached.success) {
+    cached.data = normalizeDressList(cached.data);
+    return cached;
+  }
 
   try {
     const res = await get('admin/dresses');
