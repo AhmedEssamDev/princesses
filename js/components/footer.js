@@ -21,6 +21,7 @@ function linkHref(href) {
 }
 
 const SOCIAL_ICONS = {
+  facebook: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
   instagram: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
   tiktok: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3 15.07a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.69a8.18 8.18 0 0 0 4.91 1.62V6.86a4.85 4.85 0 0 1-1-.17z"/></svg>`,
   snapchat: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C9.5 2 7.5 3.5 7 5.5c-.5 0-1 .2-1.3.5-.4.4-.5 1-.5 1.5 0 .8.4 1.5 1 2-.3.2-.5.5-.5.9 0 .6.5 1.1 1.1 1.1.1 1.5 1.3 2.7 2.8 2.9.3.5.8.9 1.4 1.1-.1.3-.2.7-.2 1.1 0 .6.2 1 .5 1.3.3.3.7.5 1.2.5h4.4c.5 0 .9-.2 1.2-.5.3-.3.5-.7.5-1.3 0-.4-.1-.8-.2-1.1.6-.2 1.1-.6 1.4-1.1 1.5-.2 2.7-1.4 2.8-2.9.6 0 1.1-.5 1.1-1.1 0-.4-.2-.7-.5-.9.6-.5 1-1.2 1-2 0-.5-.1-1.1-.5-1.5-.3-.3-.8-.5-1.3-.5C16.5 3.5 14.5 2 12 2z"/></svg>`,
@@ -39,7 +40,7 @@ export function renderFooter(container) {
     .filter(([, url]) => url)
     .map(([platform, url]) => {
       const icon = SOCIAL_ICONS[platform] || '';
-      const label = { instagram: 'إنستغرام', tiktok: 'تيك توك', snapchat: 'سناب شات' }[platform] || platform;
+      const label = { facebook: 'فيسبوك', instagram: 'إنستغرام', tiktok: 'تيك توك', snapchat: 'سناب شات' }[platform] || platform;
       return `<a href="${url}" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="${label}">${icon}</a>`;
     })
     .join('');
@@ -49,7 +50,7 @@ export function renderFooter(container) {
       <div class="container">
         <div class="footer__grid">
           <div class="footer__brand">
-            <img src="${logoSrc}" alt="${CONFIG.business.name}" class="footer__logo" width="160" height="40">
+            <img src="${logoSrc}" alt="${CONFIG.business.name}" class="footer__logo" width="auto" height="90">
             <p class="footer__tagline">${CONFIG.business.tagline}</p>
             <div class="footer__social" style="margin-top: var(--space-lg)">
               ${socialLinks}
