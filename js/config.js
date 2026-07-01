@@ -9,23 +9,24 @@ export const CONFIG = {
     name: 'Princesses',
     nameAr: 'Princesses',
     tagline: 'أناقة مُفصّلة لك',
-    founded: 2008,
+    founded: 1996,
   },
 
   contact: {
-    whatsapp: '+966500000000',
-    phone: '+966500000000',
+    whatsapp: '+201283293727',
+    phone: '+201283293727',
     email: 'info@princesses.com',
-    address: 'الرياض، المملكة العربية السعودية',
-    mapsUrl: 'https://maps.google.com/?q=Riyadh',
+    address: 'الزقازيق، مصر',
+    mapsUrl: 'https://maps.google.com/?q=Zagazig',
   },
 
   hours: {
-    weekdays: 'السبت – الخميس: 10 ص – 9 م',
-    friday: 'الجمعة: 4 م – 9 م',
+    weekdays: 'السبت للخميس: من 6 مساءً حتى 12 منتصف الليل',
+    friday: 'الجمعة: مغلق', // Assuming Friday is not specified, or just remove friday
   },
 
   social: {
+    facebook: 'https://www.facebook.com/princesses.78',
     instagram: 'https://instagram.com/princesses',
     tiktok: 'https://tiktok.com/@princesses',
     snapchat: 'https://snapchat.com/add/princesses',
@@ -54,9 +55,9 @@ export const CONFIG = {
   seo: {
     defaultTitle: 'Princesses | خياطة فساتين فاخرة',
     defaultDescription:
-      'Princesses — ورشة خياطة فساتين فاخرة منذ 2008. تصاميم أنيقة مُفصّلة بعناية لتمنحك إطلالة استثنائية.',
+      'Princesses — ورشة خياطة فساتين فاخرة منذ 1996. تصاميم أنيقة مُفصّلة بعناية لتمنحك إطلالة استثنائية.',
     siteUrl: 'https://your-username.github.io/princesses',
-    locale: 'ar_SA',
+    locale: 'ar_EG',
   },
 
   paths: {
@@ -108,5 +109,5 @@ export function buildDressWhatsAppMessage(dress) {
 }
 
 export function formatPrice(price) {
-  return new Intl.NumberFormat('ar-SA', { style: 'currency', currency: 'SAR' }).format(price);
+  return new Intl.NumberFormat('ar-EG', { style: 'currency', currency: 'EGP' }).format(price);
 }
