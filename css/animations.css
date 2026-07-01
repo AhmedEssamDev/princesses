@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Princesses — Animations
+   ========================================================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+@keyframes loading-progress {
+  0% { width: 0%; }
+  60% { width: 70%; }
+  100% { width: 100%; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fade-in { animation: fade-in var(--transition-slow) ease forwards; }
+.animate-fade-in-up { animation: fade-in-up var(--transition-slow) ease forwards; }
+.animate-scale-in { animation: scale-in var(--transition-slow) ease forwards; }
+
+.stagger-children > * {
+  opacity: 0;
+  animation: fade-in-up var(--transition-slow) ease forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-beige) 25%, var(--color-beige-dark) 50%, var(--color-beige) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton--text { height: 1em; margin-bottom: var(--space-sm); }
+.skeleton--title { height: 1.5em; width: 60%; margin-bottom: var(--space-md); }
+.skeleton--image { aspect-ratio: 3 / 4; width: 100%; }
+
+.img-zoom { overflow: hidden; }
+.img-zoom img { transition: transform var(--transition-slow); }
+.img-zoom:hover img { transform: scale(1.08); }
+
+.page-enter { animation: fade-in-up 0.6s ease forwards; }
+
+.hover-lift {
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.float-element { animation: float 6s ease-in-out infinite; }
+.float-element--delay-1 { animation-delay: 1s; }
+.float-element--delay-2 { animation-delay: 2s; }
+.float-element--delay-3 { animation-delay: 3s; }
+
+[data-aos] { pointer-events: none; }
+[data-aos].aos-animate { pointer-events: auto; }
+
+.line-reveal { position: relative; overflow: hidden; }
+
+.line-reveal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-rose-gold);
+  transition: width var(--transition-slow);
+}
+
+.line-reveal:hover::after { width: 100%; }

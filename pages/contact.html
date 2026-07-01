@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل | Princesses</title>
+  <link rel="icon" href="../assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages.css">
+</head>
+<body>
+
+  <div id="site-header-root">
+    <header class="header" id="site-header">
+      <div class="header__inner">
+        <a href="../index.html" class="header__logo">
+          <img src="../assets/images/logo.png" alt="Princesses" height="36">
+        </a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">الرئيسية</a></li>
+            <li><a href="dresses.html" class="nav__link">الفساتين</a></li>
+            <li><a href="about.html" class="nav__link">من نحن</a></li>
+            <li><a href="contact.html" class="nav__link nav__link--active">تواصل</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="القائمة">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </header>
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav__list">
+        <li><a href="../index.html" class="mobile-nav__link">الرئيسية</a></li>
+        <li><a href="dresses.html" class="mobile-nav__link">الفساتين</a></li>
+        <li><a href="about.html" class="mobile-nav__link">من نحن</a></li>
+        <li><a href="contact.html" class="mobile-nav__link mobile-nav__link--active">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="content-page">
+    <h1>تواصل معنا</h1>
+    <p>نسعد باستفساراتك — تواصلي معنا عبر واتساب أو زيارة الورشة.</p>
+
+    <div class="contact-card">
+      <div class="contact-card__item">
+        <span>📍</span>
+        <span>الرياض، المملكة العربية السعودية</span>
+      </div>
+      <div class="contact-card__item">
+        <span>📞</span>
+        <span dir="ltr">+966 50 000 0000</span>
+      </div>
+      <div class="contact-card__item">
+        <span>✉️</span>
+        <span>info@princesses.com</span>
+      </div>
+      <div class="contact-card__item">
+        <span>🕐</span>
+        <span>السبت – الخميس: 10 ص – 9 م<br>الجمعة: 4 م – 9 م</span>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem;text-align:center">
+      <a href="https://wa.me/966500000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">تواصل عبر واتساب</a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><div class="footer__bottom"><p>&copy; 2026 Princesses</p></div></div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/site.js" type="module"></script>
+</body>
+</html>

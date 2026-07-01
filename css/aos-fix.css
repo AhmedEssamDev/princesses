@@ -1,0 +1,9 @@
+/**
+ * AOS visibility fallback — keep content visible until AOS initializes.
+ * Without this, elements with data-aos stay hidden if JS fails or loads late.
+ */
+body:not([data-aos-easing]) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}

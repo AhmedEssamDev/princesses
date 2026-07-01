@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Princesses — Responsive (Mobile First)
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .hero__actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .footer__social { justify-content: flex-start; }
+}
+
+@media (min-width: 768px) {
+  .section { padding-block: var(--space-4xl); }
+  .grid--3 { grid-template-columns: repeat(2, 1fr); }
+  .grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .footer__grid { grid-template-columns: repeat(2, 1fr); }
+  .footer__brand { text-align: right; }
+  .footer__logo { margin-inline: 0; }
+  .footer__tagline { margin-inline: 0; }
+  .footer__social { justify-content: flex-start; }
+  .whatsapp-float { width: 60px; height: 60px; }
+}
+
+@media (min-width: 1024px) {
+  .nav { display: block; }
+  .nav-toggle { display: none; }
+  .mobile-nav { display: none; }
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .grid--4 { grid-template-columns: repeat(4, 1fr); }
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-xl); }
+  .hero__content { padding-top: calc(var(--header-height) + var(--space-3xl)); }
+}
+
+@media (min-width: 1280px) {
+  .container { padding-inline: var(--space-xl); }
+  .header__inner { padding-inline: var(--space-xl); }
+}
+
+@media print {
+  .header, .footer, .whatsapp-float, .loading-screen, .bg-shapes, .nav-toggle, .mobile-nav {
+    display: none !important;
+  }
+
+  body { background: white; color: black; }
+  .section { padding-block: var(--space-lg); }
+}

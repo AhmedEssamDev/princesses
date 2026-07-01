@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Princesses | خياطة فساتين فاخرة</title>
+  <meta name="description" content="Princesses — ورشة خياطة فساتين فاخرة منذ 2008">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="home">
+
+  <div class="bg-shapes" aria-hidden="true">
+    <div class="bg-shape bg-shape--1"></div>
+    <div class="bg-shape bg-shape--2"></div>
+  </div>
+
+  <div id="site-header-root">
+    <header class="header" id="site-header">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo">
+          <img src="assets/images/logo.png" alt="Princesses" height="36">
+        </a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link nav__link--active">الرئيسية</a></li>
+            <li><a href="pages/dresses.html" class="nav__link">الفساتين</a></li>
+            <li><a href="pages/about.html" class="nav__link">من نحن</a></li>
+            <li><a href="pages/contact.html" class="nav__link">تواصل</a></li>
+          </ul>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="القائمة">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
+    </header>
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <ul class="mobile-nav__list">
+        <li><a href="index.html" class="mobile-nav__link mobile-nav__link--active">الرئيسية</a></li>
+        <li><a href="pages/dresses.html" class="mobile-nav__link">الفساتين</a></li>
+        <li><a href="pages/about.html" class="mobile-nav__link">من نحن</a></li>
+        <li><a href="pages/contact.html" class="mobile-nav__link">تواصل</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <span class="hero__badge">✦ منذ 2008 ✦</span>
+        <h1 class="hero__title">أناقة مُفصّلة<br>لأجلك</h1>
+        <p class="hero__subtitle">فساتين فاخرة مُفصّلة بعناية — لكل مناسبة إطلالة تليق بك.</p>
+        <div class="hero__actions">
+          <a href="pages/dresses.html" id="hero-cta-dresses" class="btn btn--primary btn--lg">استعرض الفساتين</a>
+          <a href="#" id="hero-cta-whatsapp" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener">تواصل عبر واتساب</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">فساتين مميزة</h2>
+          <div class="section-header__divider"></div>
+        </div>
+        <div id="featured-dresses-grid" class="grid grid--4"></div>
+      </div>
+    </section>
+
+    <section class="section section--cream">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">لماذا Princesses؟</h2>
+        </div>
+        <div class="grid grid--3">
+          <article class="glass-card">
+            <h3 class="card__title">خبرة منذ 2008</h3>
+            <p>أكثر من 15 عاماً في خياطة الفساتين الفاخرة.</p>
+          </article>
+          <article class="glass-card">
+            <h3 class="card__title">جودة عالية</h3>
+            <p>أجود الأقمشة وأدق التفاصيل في كل فستان.</p>
+          </article>
+          <article class="glass-card">
+            <h3 class="card__title">تفصيل حسب المقاس</h3>
+            <p>كل فستان يُصمَّم خصيصاً ليناسبك.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-header__title">أحدث الفساتين</h2>
+          <div class="section-header__divider"></div>
+        </div>
+        <div id="latest-dresses-grid" class="grid grid--4"></div>
+        <p style="text-align:center;margin-top:2rem">
+          <a href="pages/dresses.html" class="btn btn--secondary">عرض كل الفساتين</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/images/logo.png" alt="Princesses" class="footer__logo" height="40">
+          <p class="footer__tagline">أناقة مُفصّلة لك</p>
+        </div>
+        <div>
+          <h3 class="footer__heading">روابط</h3>
+          <ul class="footer__links">
+            <li><a href="index.html" class="footer__link">الرئيسية</a></li>
+            <li><a href="pages/dresses.html" class="footer__link">الفساتين</a></li>
+            <li><a href="pages/about.html" class="footer__link">من نحن</a></li>
+            <li><a href="pages/contact.html" class="footer__link">تواصل</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__heading">تواصل</h3>
+          <p class="footer__link">الرياض، المملكة العربية السعودية</p>
+          <p class="footer__link" dir="ltr">+966 50 000 0000</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Princesses. جميع الحقوق محفوظة.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/site.js" type="module"></script>
+</body>
+</html>

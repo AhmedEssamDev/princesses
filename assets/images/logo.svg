@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none" aria-hidden="true">
+  <!-- Brand Icon (Crown & Dress Line Art) -->
+  <g transform="translate(10, 5)">
+    <!-- Crown -->
+    <path d="M 28 22 C 30 14 34 10 37 8 C 39 12 37 17 37 19 C 39 17 43 14 45 14 C 47 14 49 16 49 18 C 50 16 52 14 55 14 C 58 14 59 17 59 19 C 59 16 61 11 63 8 C 66 10 70 14 72 22 C 60 25 40 25 28 22 Z" fill="#C5A880"/>
+    
+    <!-- Heart Bodice -->
+    <path d="M 41 29 C 43 27 47 27 49 29 C 51 27 55 27 57 29 C 59 32 55 37 50 41 C 45 37 41 32 41 29 Z" stroke="#C5A880" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Flowing Dress Lines -->
+    <path d="M 45 40 C 40 46 36 53 32 60 C 28 67 29 70 32 70 C 37 70 42 66 47 60" stroke="#C5A880" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 55 40 C 60 46 64 53 68 60 C 72 67 71 70 68 70 C 63 70 58 66 53 60" stroke="#C5A880" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 50 41 C 50 50 47 62 38 69 C 45 69 55 69 62 69 C 53 62 50 50 50 41 Z" stroke="#C5A880" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="#FAF9F6" fill-opacity="0.2"/>
+  </g>
+
+  <!-- Typography -->
+  <!-- "Princesses" -->
+  <text x="95" y="44" font-family="'Alexandria', 'Times New Roman', serif" font-size="28" font-weight="600" fill="#8A6F46" letter-spacing="0.5">Princesses</text>
+  
+  <!-- "Couture & Tailoring" -->
+  <text x="96" y="62" font-family="'Cairo', Georgia, serif" font-size="11" font-weight="500" fill="#C5A880" letter-spacing="1">COUTURE &amp; TAILORING</text>
+</svg>
