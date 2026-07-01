@@ -433,8 +433,8 @@ async function handleDressFormSubmit(e) {
         formSuccess.style.display = 'block';
 
         const uploadResult = await uploadImageFile(item, uploadFolder);
-        if (uploadResult.success && uploadResult.data?.url) {
-          finalImageUrls.push(uploadResult.data.url);
+        if (uploadResult.success && (uploadResult.data?.thumbnailUrl || uploadResult.data?.url)) {
+          finalImageUrls.push(uploadResult.data.thumbnailUrl || uploadResult.data.url);
         } else {
           throw new Error(uploadResult.error || `فشل رفع الصورة: ${item.name}`);
         }
