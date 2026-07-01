@@ -22,7 +22,11 @@ function getCachedApi(key) {
       sessionStorage.removeItem('api_cache_' + key);
       return null;
     }
-    return parsed.data;
+    const data = parsed.data;
+    if (data && typeof data === 'object') {
+      data._cached = true;
+    }
+    return data;
   } catch (e) {
     return null;
   }

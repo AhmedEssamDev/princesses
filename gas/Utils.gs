@@ -84,6 +84,7 @@ var Utils = (function () {
     var obj = {};
     for (var i = 0; i < headers.length; i++) {
       var key = camelCase(headers[i]);
+      if (key === 'iD') key = 'id';
       obj[key] = row[i] !== undefined ? row[i] : '';
     }
     return obj;

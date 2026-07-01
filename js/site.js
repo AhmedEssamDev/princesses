@@ -10,11 +10,17 @@ let DATA = window.PRINCESSES || { dresses: [], categories: [] };
 
 /* ─── Page Loader ─── */
 
-function hideLoader() {
+function hideLoader(instant = false) {
   var loader = document.getElementById('page-loader');
   if (loader) {
-    // Small delay so the page doesn't flash
-    setTimeout(function () { loader.classList.add('hidden'); }, 300);
+    if (instant) {
+      loader.style.transition = 'none';
+      loader.style.opacity = '0';
+      loader.style.visibility = 'hidden';
+      loader.remove();
+    } else {
+      setTimeout(function () { loader.classList.add('hidden'); }, 300);
+    }
   }
 }
 
@@ -262,18 +268,20 @@ async function syncDataFromApi() {
       getAbout()
     ]);
 
+    let isCached = false;
     if (dressesRes.success && dressesRes.data) {
       DATA.dresses = dressesRes.data;
+      if (dressesRes._cached) isCached = true;
     }
     if (categoriesRes.success && categoriesRes.data) {
       // Format to array of names, adding "الكل" at the beginning
       DATA.categories = ['الكل', ...categoriesRes.data.map(c => c.name)];
     }
 
-    return aboutRes.success ? aboutRes.data : null;
+    return { aboutData: aboutRes.success ? aboutRes.data : null, isCached };
   } catch (err) {
     console.error('Error syncing dynamic data:', err);
-    return null;
+    return { aboutData: null, isCached: false };
   }
 }
 
@@ -294,14 +302,14 @@ async function init() {
     showSkeletons($('#dresses-grid'), 8);
   }
 
-  const aboutData = await syncDataFromApi();
+  const { aboutData, isCached } = await syncDataFromApi();
 
   if (page === 'home') initHome();
   if (page === 'dresses') initDressesList();
   if (page === 'dress') initDressDetail();
   if (page === 'about' && aboutData) initAbout(aboutData);
 
-  hideLoader();
+  hideLoader(isCached);
 }
 
 if (document.readyState === 'loading') {
