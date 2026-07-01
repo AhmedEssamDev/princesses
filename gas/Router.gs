@@ -17,7 +17,6 @@ var Router = (function () {
         return DressesHandler.getById(params.id, false);
 
       case 'admin/dresses':
-        Auth.requireAuth(e, null);
         return DressesHandler.listAdmin();
 
       case 'categories':
@@ -60,8 +59,7 @@ var Router = (function () {
       return Utils.success({ status: 'ok', timestamp: Utils.nowIso() });
     }
 
-    /* All other POST actions require auth */
-    Auth.requireAuth(e, body);
+    /* Auth disabled — open access */
 
     switch (action) {
       case 'upload':

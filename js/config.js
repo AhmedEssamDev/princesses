@@ -32,7 +32,7 @@ export const CONFIG = {
   },
 
   api: {
-    baseUrl: 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec',
+    baseUrl: 'https://script.google.com/macros/s/AKfycbx7PfbNF0B3RfVSpVCNMUgs_JstdSEaB8Zsv0opq6EqABK9FxLUJSBUpOERgErdDVAF/exec',
   },
 
   theme: {
